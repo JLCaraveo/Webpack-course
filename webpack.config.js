@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const path = require('path');
+const HtlmWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -20,5 +21,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtlmWebpackPlugin({
+      inject: true,
+      template: './public/index.html',
+      filename: './index.html'
+    })
+  ]
 }
